@@ -24,7 +24,6 @@ int main()
 
 int *merge(int *a, int len_a, int *b, int len_b)
 {
-    // Merge
     int *c = malloc((len_a + len_b) * sizeof(int));
     int i = 0;
     int j = 0;
@@ -83,9 +82,4 @@ void print_int_array(int *input, int length)
         printf("%d, ", input[i]);
     }
     printf("\b\b]\n");
-    // for (unsigned short i = 0; i < length; i++)
-    // {
-    //     printf("%4d  ", i);
-    // }
-    // printf("\n\n");
 }
