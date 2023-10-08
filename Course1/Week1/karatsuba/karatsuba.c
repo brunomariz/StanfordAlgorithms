@@ -3,25 +3,33 @@
 #include <string.h>
 
 char *karatsuba(char *x, char *y);
+char *add_str(char *x, char *y);
+void split_str(char *x, int n, char **dest1, char **dest2);
 void trim_zeros_to_left(char *x);
 void append_zeros_to_right(char *x, int n);
-char *add_str(char *x, char *y);
 
 int main()
 {
-    char x[] = "123";
-
-    char y[] = "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-
-    char *z = add_str(x, y);
-    printf("%s\n", z);
+    char *x = "123456789";
+    char *a;
+    char *b;
+    int n;
+    n = 8;
+    split_str(x, n, &a, &b);
+    printf("x: %s\nn %d\na %s\nb %s\n", x, n, a, b);
+    n = 9;
+    split_str(x, n, &a, &b);
+    printf("x: %s\nn %d\na %s\nb %s\n", x, n, a, b);
+    n = 10;
+    split_str(x, n, &a, &b);
+    printf("x: %s\nn %d\na %s\nb %s\n", x, n, a, b);
 
     return 0;
 }
 
 char *karatsuba(char *x, char *y)
 {
-    if (strlen(x) == 1 && strlen(y) == 1)
+    if (strlen(x) == 1 || strlen(y) == 1)
     {
         // int r = atoi(x) * atoi(y);
         // char *c = {r + '0', '\0'};
@@ -64,6 +72,30 @@ char *add_str(char *x, char *y)
     sum[0] = carry + '0';
     trim_zeros_to_left(sum);
     return sum;
+}
+
+void split_str(char *x, int n, char **dest1, char **dest2)
+{
+    // Splits x string between dest1 and dest2 at position n
+    // where n = length of dest1
+
+    int len_x = strlen(x);
+
+    int len_dest1 = n;
+    int len_dest2 = len_x - n;
+    (*dest1) = (char *)malloc(sizeof(char) * (len_dest1 + 1));
+    (*dest1)[len_dest1] = '\0';
+    (*dest2) = (char *)malloc(sizeof(char) * (len_dest2 + 1));
+    (*dest2)[len_dest2] = '\0';
+
+    for (size_t i = 0; i < len_dest1; i++)
+    {
+        (*dest1)[i] = x[i];
+    }
+    for (size_t i = len_dest1; i < len_x; i++)
+    {
+        (*dest2)[i - len_dest1] = x[i];
+    }
 }
 
 void trim_zeros_to_left(char *x)
