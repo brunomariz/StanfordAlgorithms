@@ -1,4 +1,4 @@
-#include "str_math.h"
+#include "../inc/str_math.h"
 
 int ctoi(char c)
 {

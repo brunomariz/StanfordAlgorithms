@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "str_math.h"
+#include "../inc/str_math.h"
 
 char *karatsuba(char *x, char *y);
 
