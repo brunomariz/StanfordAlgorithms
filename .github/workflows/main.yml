@@ -1,9 +1,6 @@
 name: README code output
 
-on:
-  push:
-    paths:
-    - '*.c'
+on: [push]
 
 jobs:
   update_templates:
