@@ -1,48 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define INPUT_LEN 6
+#define MAX_INPUT_LEN 100000
 
 void print_int_array(int *input, int length);
 int floor(double x);
 int ceil(double x);
 int *merge(int *a, int len_a, int *b, int len_b);
 int *merge_sort(int *input, int len);
-int count_inversions(int **array, int length);
-int count_split_inversions(int **array, int length);
+long long unsigned int count_inversions(int **array, int length);
+long long unsigned int count_split_inversions(int **array, int length);
 
 int main() {
-    int *input = malloc(sizeof(int) * INPUT_LEN);
-    input[0] = 2;
-    input[1] = 3;
-    input[2] = 8;
-    input[3] = 6;
-    input[4] = 1;
-    input[5] = 5;
-    // input[6] = 9;
-    // input[7] = 56;
-    // input[8] = 2;
-    // input[9] = 24;
-    // input[10] = 10;
-    // input[11] = 4;
-    // input[12] = 12;
-    // input[13] = 31;
-    // input[14] = 20;
+    int *input = malloc(sizeof(int) * MAX_INPUT_LEN);
 
-    printf("Input:\n");
-    print_int_array(input, INPUT_LEN);
+    // Read input file
+    FILE *fp;
+    char *line = NULL;
+    size_t len = 0;
+    size_t read;
 
-    int count = count_inversions(&input, INPUT_LEN);
-    print_int_array(input, INPUT_LEN);
+    fp = fopen("input.txt", "r");
+    if (fp == NULL) exit(EXIT_FAILURE);
 
-    // int *output = merge_sort(input, INPUT_LEN);
+    int i = 0;
+    while (((read = getline(&line, &len, fp)) != -1) && i < MAX_INPUT_LEN) {
+        input[i] = atoi(line);
+        i++;
+    }
 
-    printf("Number of inversions: %d\n", count);
+    fclose(fp);
+    if (line) free(line);
+
+    // printf("Input:\n");
+    // print_int_array(input, MAX_INPUT_LEN);
+
+    int count = count_inversions(&input, MAX_INPUT_LEN);
+
+    // printf("Input after running count_inversions:\n");
+    // print_int_array(input, MAX_INPUT_LEN);
+
+    printf("Number of inversions: %llu\n", count);
 
     return 0;
 }
 
-int count_inversions(int **array, int length) {
+long long unsigned int count_inversions(int **array, int length) {
     if (length == 1) {
         return 0;
     }
@@ -56,21 +59,17 @@ int count_inversions(int **array, int length) {
     int *second_half = &((*array)[len_first_half]);
 
     // Recursevely count inversions in each half
-    int x = count_inversions(&first_half, len_first_half);
-    int y = count_inversions(&second_half, len_second_half);
+    long long unsigned int x = count_inversions(&first_half, len_first_half);
+    long long unsigned int y = count_inversions(&second_half, len_second_half);
     // Count inversions that happen between each half
-    printf("before\n");
-    print_int_array(first_half, len_first_half);
-    int z = count_split_inversions(array, length);
-    printf("after\n");
-    print_int_array(first_half, len_first_half);
+    long long unsigned int z = count_split_inversions(array, length);
 
     return x + y + z;
 }
 
-int count_split_inversions(int **array, int length) {
+long long unsigned int count_split_inversions(int **array, int length) {
     int *sorted = malloc((length) * sizeof(int));
-    int split_inversions_count = 0;
+    long long unsigned int split_inversions_count = 0;
 
     // Divide array in two halves
     int len_first_half = floor((double)length / 2.0);
