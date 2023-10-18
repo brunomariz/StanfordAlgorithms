@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TEST 1
-#define INPUT_LEN 16
+#define INPUT_LEN 10
 
 void print_int_array(int *input, int length);
 int *merge(int *a, int len_a, int *b, int len_b);
@@ -10,7 +9,7 @@ int *merge_sort(int *input, int len);
 
 int main()
 {
-    int input[INPUT_LEN] = {7, 1, 6, 2, 8, 3, 4, 5, 9, 56, 2, 34, 23, 64, 24, 15};
+    int input[INPUT_LEN] = {7, 1, 6, 8, 3, 5, 9, 56, 2, 24};
 
     printf("Input:\n");
     print_int_array(input, INPUT_LEN);
