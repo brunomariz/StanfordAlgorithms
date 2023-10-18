@@ -15,10 +15,8 @@ jobs:
         run: |
           # cd StanfordAlgorithms
           sh actions/update_all_readmes.sh
-          # git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # git config user.name "github-actions[bot]"
-          # git commit -am "Automated report"
-          # git push
-
-      - name: Commit Readme
-        uses: EndBug/add-and-commit@v9
+          git config user.name Bruno Mariz
+          git config user.email bmarizot@gmail.com
+          git add .
+          git commit -m "generated"
+          git push
