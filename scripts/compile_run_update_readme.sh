@@ -8,7 +8,7 @@ program_output="## Program output
 
 \`\`\`bash
 $ make
-$ ./${1}a.out 
+$ ${1}a.out 
 $(${1}a.out)
 \`\`\`"
 output_start_tag="<!-- gh-action-output -->"
