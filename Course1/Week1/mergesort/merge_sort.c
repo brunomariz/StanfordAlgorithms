@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define TEST 1
 #define INPUT_LEN 16
 
 void print_int_array(int *input, int length);
