@@ -20,7 +20,7 @@ int main() {
     size_t len = 0;
     size_t read;
 
-    fp = fopen("input.txt", "r");
+    fp = fopen("Course1/Week2/count_inversions/input.txt", "r");
     if (fp == NULL) exit(EXIT_FAILURE);
 
     int i = 0;
@@ -35,7 +35,7 @@ int main() {
     // printf("Input:\n");
     // print_int_array(input, MAX_INPUT_LEN);
 
-    int count = count_inversions(&input, MAX_INPUT_LEN);
+    long long unsigned int count = count_inversions(&input, MAX_INPUT_LEN);
 
     // printf("Input after running count_inversions:\n");
     // print_int_array(input, MAX_INPUT_LEN);

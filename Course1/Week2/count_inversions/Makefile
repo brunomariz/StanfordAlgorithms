@@ -28,8 +28,8 @@ EXEC := a.out
 all: $(EXEC)
 
 # recipe for building the final executable
-$(EXEC): $(OBJS) $(HDRS) Makefile
-	$(CC) -ggdb $(OBJS) $(CFLAGS)
+$(EXEC): $(SRCS) Makefile
+	$(CC) -ggdb -Wall $(SRCS)
 
 # test: $(TEST_OBJS) $(HDRS) Makefile
 # 	$(CC) -o $@ $(TEST_OBJS) $(CFLAGS)
