@@ -14,7 +14,7 @@ jobs:
       - name: Update README.md
         run: |
           # cd StanfordAlgorithms
-          sh actions/update_all_readmes.sh
+          sh scripts/update_all_readmes.sh
           git config user.name Bruno Mariz
           git config user.email bmarizot@gmail.com
           git add .
