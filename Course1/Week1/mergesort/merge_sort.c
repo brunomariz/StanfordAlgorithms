@@ -79,7 +79,11 @@ void print_int_array(int *input, int length)
     printf("[");
     for (unsigned short i = 0; i < length; i++)
     {
-        printf("%d, ", input[i]);
-    }
-    printf("\b\b]\n");
+        printf("%d", input[i]);
+        if (i < length - 1)
+        {
+            printf(", ");
+        }
+        }
+    printf("]\n");
 }
