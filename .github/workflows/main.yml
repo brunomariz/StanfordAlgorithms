@@ -13,7 +13,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Update README.md
         run: |
-          cd StanfordAlgorithms
+          echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
           sh actions/update_all_readmes.sh
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
