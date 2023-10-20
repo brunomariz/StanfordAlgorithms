@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_LENGTH 8
+#define MAX_INPUT_LEN 10000
 
 typedef enum {
     PIVOT_CHOICE_MODE_FIRST,
@@ -31,37 +31,37 @@ int main() {
     printf("Pivot choice strategy: first element of subarray\n");
 
     int *array = generate_array();
-    printf("Input array:\n");
-    print_int_array(array, MAX_LENGTH);
-    quicksort(&array, 0, MAX_LENGTH - 1, &pivot_comparison_count,
+    // printf("Input array:\n");
+    // print_int_array(array, MAX_INPUT_LEN);
+    quicksort(&array, 0, MAX_INPUT_LEN - 1, &pivot_comparison_count,
               PIVOT_CHOICE_MODE_FIRST, verbose_mode);
 
-    printf("\nSorted array:\n");
-    print_int_array(array, MAX_LENGTH);
+    // printf("\nSorted array:\n");
+    // print_int_array(array, MAX_INPUT_LEN);
     printf(
         "Total pivot comparisons: "
         "%d\n",
         pivot_comparison_count);
 
-    printf("===============================================\n");
+    printf("================================================\n");
     printf("Pivot choice strategy: last element of subarray\n");
     pivot_comparison_count = 0;
 
     array = generate_array();
 
-    printf("Input array:\n");
-    print_int_array(array, MAX_LENGTH);
-    quicksort(&array, 0, MAX_LENGTH - 1, &pivot_comparison_count,
+    // printf("Input array:\n");
+    // print_int_array(array, MAX_INPUT_LEN);
+    quicksort(&array, 0, MAX_INPUT_LEN - 1, &pivot_comparison_count,
               PIVOT_CHOICE_MODE_LAST, verbose_mode);
 
-    printf("\nSorted array:\n");
-    print_int_array(array, MAX_LENGTH);
+    // printf("\nSorted array:\n");
+    // print_int_array(array, MAX_INPUT_LEN);
     printf(
-        "Total pivot comparisons:"
+        "Total pivot comparisons: "
         "%d\n",
         pivot_comparison_count);
 
-    printf("===============================================\n");
+    printf("================================================\n");
     printf(
         "Pivot choice strategy: median element between first, middle, and last "
         "elements of subarray\n");
@@ -69,15 +69,15 @@ int main() {
 
     array = generate_array();
 
-    printf("Input array:\n");
-    print_int_array(array, MAX_LENGTH);
-    quicksort(&array, 0, MAX_LENGTH - 1, &pivot_comparison_count,
+    // printf("Input array:\n");
+    // print_int_array(array, MAX_INPUT_LEN);
+    quicksort(&array, 0, MAX_INPUT_LEN - 1, &pivot_comparison_count,
               PIVOT_CHOICE_MODE_MEDIAN, verbose_mode);
 
-    printf("\nSorted array:\n");
-    print_int_array(array, MAX_LENGTH);
+    // printf("\nSorted array:\n");
+    // print_int_array(array, MAX_INPUT_LEN);
     printf(
-        "Total pivot comparisons:"
+        "Total pivot comparisons: "
         "%d\n",
         pivot_comparison_count);
 
@@ -184,17 +184,37 @@ void partition_around_pivot(int **array, int l, int r, int *pivot) {
 }
 
 int *generate_array() {
-    int *array = malloc(sizeof(int) * MAX_LENGTH);
+    // int *array = malloc(sizeof(int) * MAX_INPUT_LEN);
 
-    array[0] = 3;
-    array[1] = 8;
-    array[2] = 2;
-    array[3] = 5;
-    array[4] = 1;
-    array[5] = 4;
-    array[6] = 7;
-    array[7] = 6;
-    return array;
+    // array[0] = 3;
+    // array[1] = 8;
+    // array[2] = 2;
+    // array[3] = 5;
+    // array[4] = 1;
+    // array[5] = 4;
+    // array[6] = 7;
+    // array[7] = 6;
+    // return array;
+    int *input = malloc(sizeof(int) * MAX_INPUT_LEN);
+
+    // Read input file
+    FILE *fp;
+    char *line = NULL;
+    size_t len = 0;
+    size_t read;
+
+    fp = fopen("Course1/Week3/quicksort/input.txt", "r");
+    if (fp == NULL) exit(EXIT_FAILURE);
+
+    int i = 0;
+    while (((read = getline(&line, &len, fp)) != -1) && i < MAX_INPUT_LEN) {
+        input[i] = atoi(line);
+        i++;
+    }
+
+    fclose(fp);
+    if (line) free(line);
+    return input;
 }
 
 void print_int_array(int *input, int length) {
