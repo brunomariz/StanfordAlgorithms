@@ -18,7 +18,7 @@ void quicksort(int **array, int l, int r, int *pivot_comparison_count,
                PivotChoiceMode pivot_choice_mode, VerboseMode verbose_mode);
 int choose_pivot(int *array, int l, int r, PivotChoiceMode mode);
 void swap_elements(int **array, int i, int j);
-void partition_around_pivot(int **array, int l, int r, int *pivot);
+void partition_around_pivot(int **array, int l, int r, int *pivot_index);
 int *generate_array();
 void print_int_array(int *input, int length);
 
@@ -159,12 +159,11 @@ void swap_elements(int **array, int i, int j) {
     (*array)[j] = aux;
 }
 
-void partition_around_pivot(int **array, int l, int r, int *pivot) {
+void partition_around_pivot(int **array, int l, int r, int *pivot_index) {
     // Partition elements of array around pivot (first element of array)
-    // returns new pivot index
-    int pivot_value = (*array)[*pivot];
-    swap_elements(array, l, *pivot);
-    *pivot = l;
+    int pivot_value = (*array)[*pivot_index];
+    swap_elements(array, l, *pivot_index);
+    *pivot_index = l;
     int i = l + 1;
     for (size_t j = l + 1; j <= r; j++) {
         if ((*array)[j] < pivot_value) {
@@ -172,8 +171,8 @@ void partition_around_pivot(int **array, int l, int r, int *pivot) {
             i++;
         }
     }
-    swap_elements(array, *pivot, i - 1);
-    *pivot = i - 1;
+    swap_elements(array, *pivot_index, i - 1);
+    *pivot_index = i - 1;
 }
 
 int *generate_array() {
