@@ -53,6 +53,7 @@ choose_pivot(A, l, r, mode)
 
 ## Partition array
 
+```c
 void partition_around_pivot(A, l, r, pivot_index) {
     // Partition elements of array around pivot (first element of array)
     pivot_value = A[*pivot_index];
@@ -68,6 +69,7 @@ void partition_around_pivot(A, l, r, pivot_index) {
     swap_elements(array, pivot_index, i - 1);
     pivot_index = i - 1;
 }
+```
 
 
 
