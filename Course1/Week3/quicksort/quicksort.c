@@ -134,14 +134,7 @@ int choose_pivot(int *array, int l, int r, PivotChoiceMode mode) {
     }
     if (mode == PIVOT_CHOICE_MODE_MEDIAN) {
         int first = array[l];
-        int middle_index;
-        if ((r - l + 1) % 2 == 0) {
-            middle_index = (r - l + 1) / 2 + l - 1;
-            /* code */
-        } else {
-            middle_index = (r - l + 1) / 2 + l;
-        }
-
+        int middle_index = (r - l + 1) / 2 - (r - l + 1) % 2;
         int middle = array[middle_index];
         int last = array[r];
         // First element is median
@@ -184,17 +177,6 @@ void partition_around_pivot(int **array, int l, int r, int *pivot) {
 }
 
 int *generate_array() {
-    // int *array = malloc(sizeof(int) * MAX_INPUT_LEN);
-
-    // array[0] = 3;
-    // array[1] = 8;
-    // array[2] = 2;
-    // array[3] = 5;
-    // array[4] = 1;
-    // array[5] = 4;
-    // array[6] = 7;
-    // array[7] = 6;
-    // return array;
     int *input = malloc(sizeof(int) * MAX_INPUT_LEN);
 
     // Read input file
