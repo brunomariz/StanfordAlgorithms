@@ -86,6 +86,6 @@ Pivot choice strategy: last element of subarray
 Total pivot comparisons: 164123
 ================================================
 Pivot choice strategy: median element between first, middle, and last elements of subarray
-Total pivot comparisons: 138382
+Total pivot comparisons: 148313
 ```
 <!-- gh-action-output end -->
