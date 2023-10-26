@@ -6,4 +6,3 @@ for dir in $dirs; do
     echo "--> Running action on $dir"
     sh scripts/compile_run_update_readme.sh $dir
 done
-
