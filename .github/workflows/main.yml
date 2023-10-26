@@ -17,11 +17,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Update README.md
         run: |
-          # cd StanfordAlgorithms
-          # sh scripts/setup.sh
           sh scripts/update_all_readmes.sh
-          # git config user.name Bruno Mariz
-          # git config user.email bmarizot@gmail.com
+          git config user.name Bruno Mariz
+          git config user.email bmarizot@gmail.com
           git add .
+          git status
           git commit -m "generated"
           git push
