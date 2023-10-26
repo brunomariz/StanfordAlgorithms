@@ -25,7 +25,7 @@ MC_EList *mc_e_list_create();
 void mc_e_list_append(MC_EList *e_list, MC_E *e);
 // Print callback for edge list
 void mc_e_list_print_callback(void *data, int iter);
-void mc_e_list_print(MC_VList *v_list);
+void mc_e_list_print(MC_EList *e_list);
 
 // === Vertices ===
 

@@ -10,7 +10,6 @@ int main() {
     mc_v_list_append(v_list, v2);
     mc_v_list_append(v_list, v3);
     mc_v_list_append(v_list, v4);
-    mc_v_list_print(v_list);
 
     MC_E *e1 = mc_e_create(v1, v2);
     MC_E *e2 = mc_e_create(v1, v3);
@@ -23,6 +22,9 @@ int main() {
     mc_e_list_append(e_list, e3);
     mc_e_list_append(e_list, e4);
     mc_e_list_append(e_list, e5);
+
+    mc_v_list_print(v_list);
+    printf("\n");
     mc_e_list_print(e_list);
 
     return 0;
