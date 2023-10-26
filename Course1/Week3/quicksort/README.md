@@ -76,7 +76,7 @@ void partition_around_pivot(A, l, r, pivot_index) {
 <!-- gh-action-output -->
 ## Program output
 ```bash
-$ make
+$ make -C ./Course1/Week3/quicksort/
 $ ./Course1/Week3/quicksort/a.out 
 ================================================
 Pivot choice strategy: first element of subarray
