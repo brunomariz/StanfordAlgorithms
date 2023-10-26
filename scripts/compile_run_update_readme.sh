@@ -68,3 +68,4 @@ done
 
 echo "Added program output:"
 echo "${program_output}"
+cat ${readme_path}
