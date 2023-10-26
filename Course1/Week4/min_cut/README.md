@@ -18,17 +18,5 @@ Incident edges:Edge list:
 [item 2] v1: 2 | v2: 3
 [item 3] v1: 2 | v2: 4
 [item 4] v1: 3 | v2: 4
-Edge list:
-[item 0] v1: 1 | v2: 2
-[item 1] v1: 1 | v2: 3
-[item 2] v1: 2 | v2: 3
-[item 3] v1: 2 | v2: 4
-[item 4] v1: 3 | v2: 4
-Edge list:
-[item 0] v1: 1 | v2: 2
-[item 1] v1: 1 | v2: 3
-[item 2] v1: 2 | v2: 3
-[item 3] v1: 2 | v2: 4
-[item 4] v1: 3 | v2: 4
 ```
 <!-- gh-action-output end -->
