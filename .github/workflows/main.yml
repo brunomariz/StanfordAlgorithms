@@ -18,9 +18,8 @@ jobs:
       - name: Update README.md
         run: |
           sh scripts/update_all_readmes.sh
-          # git config user.name Bruno Mariz
-          # git config user.email bmarizot@gmail.com
-          # git add .
-          # git status
-          # git commit -m "generated"
-          # git push
+          git config user.name Bruno Mariz
+          git config user.email bmarizot@gmail.com
+          git add .
+          git commit -m "generated"
+          git push
