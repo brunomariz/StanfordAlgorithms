@@ -24,6 +24,8 @@ int main() {
     mc_e_list_append(e_list, e4);
     mc_e_list_append(e_list, e5);
     mc_e_list_print(e_list);
+    mc_e_list_print(e_list);
+    mc_e_list_print(e_list);
 
     return 0;
 }
