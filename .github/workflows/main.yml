@@ -21,5 +21,5 @@ jobs:
           git config user.name Bruno Mariz
           git config user.email bmarizot@gmail.com
           git add .
-          git commit -m "generated"
+          git diff-index --quiet HEAD || git commit -m "generated"
           git push
