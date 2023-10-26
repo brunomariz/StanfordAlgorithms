@@ -24,7 +24,6 @@ int main() {
     mc_e_list_append(e_list, e5);
 
     mc_v_list_print(v_list);
-    printf("\n");
     mc_e_list_print(e_list);
 
     return 0;
