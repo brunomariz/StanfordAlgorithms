@@ -16,7 +16,7 @@ output_end_tag="<!-- gh-action-output end -->"
 
 # Test if readme exists
 if test -f "$readme_path"; then
-    echo "$FILE exists."
+    echo "$readme_path exists."
 else
     echo "No README found. Creating README."
     echo "${output_start_tag}" >> ${readme_path}
@@ -66,3 +66,5 @@ do
   sed -i '/gh-action-output end -/i '"${line}" ${readme_path}
 done
 
+echo "Added program output:"
+echo "${program_output}"
