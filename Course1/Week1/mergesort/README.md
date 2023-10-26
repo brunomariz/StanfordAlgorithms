@@ -1,7 +1,7 @@
 <!-- gh-action-output -->
 ## Program output
 ```bash
-$ make
+$ make -C ./Course1/Week1/mergesort/
 $ ./Course1/Week1/mergesort/a.out 
 Input:
 [7, 1, 6, 8, 3, 5, 9, 56, 2, 24, 10, 4, 12, 31, 20]
