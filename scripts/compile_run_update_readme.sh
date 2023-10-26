@@ -7,7 +7,7 @@ readme_path="${1}README.md"
 program_output="## Program output
 
 \`\`\`bash
-$ make
+$ make -C ${1}
 $ ${1}a.out 
 $(${1}a.out)
 \`\`\`"
