@@ -26,6 +26,25 @@ int main() {
     mc_v_list_print(v_list);
     mc_e_list_print(e_list);
 
+    mc_v_list_remove(v_list, v2);
+    mc_e_list_remove(e_list, e3);
+
+    mc_v_list_print(v_list);
+    mc_e_list_print(e_list);
+
+    // MC_G *g = mc_g_create();
+    // mc_g_print(g);
+    // mc_g_add_v(g, mc_v_create(1));
+    // mc_g_add_v(g, mc_v_create(2));
+    // mc_g_add_v(g, mc_v_create(3));
+    // mc_g_add_v(g, mc_v_create(4));
+    // mc_g_create_e(g, 1, 2);
+    // mc_g_create_e(g, 1, 3);
+    // mc_g_create_e(g, 2, 3);
+    // mc_g_create_e(g, 2, 4);
+    // mc_g_create_e(g, 3, 4);
+    // mc_g_print(g);
+
     return 0;
 }
 

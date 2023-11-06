@@ -4,6 +4,7 @@ MC_V *mc_v_create(int id) {
     MC_V *v = malloc(sizeof(MC_V));
     v->id = id;
     v->incident_edges = mc_e_list_create();
+    v->contracted_vs = mc_v_list_create();
     return v;
 }
 
@@ -14,6 +15,21 @@ MC_VList *mc_v_list_create() {
 
 void mc_v_list_append(MC_VList *v_list, MC_V *v) {
     c_structures_s_list_append(v_list, v);
+}
+
+int mc_v_list_internal_compare(void *data1, void *data2) {
+    MC_V *v1 = data1;
+    MC_V *v2 = data2;
+    if (v1 == v2) {
+        return 1;
+    }
+    return 0;
+}
+
+void mc_v_list_remove(MC_VList *v_list, MC_V *v) {
+    int index =
+        c_structures_s_list_index_of(v_list, v, mc_v_list_internal_compare);
+    c_structures_s_list_remove(v_list, index);
 }
 
 // Print callback for vertex list
