@@ -8,6 +8,21 @@ MC_V *mc_v_create(int id) {
     return v;
 }
 
+void mc_v_self_connections_remove(MC_V *v, MC_EList *e_list) {
+    // Remove self connections on v
+    CS_SListItem *item = v->incident_edges->head;
+    for (size_t i = 0; i < v->incident_edges->length; i++) {
+        MC_E *incident_edge = item->data;
+        // if incident edge has 2 equal edges (self connection/loop)
+        if (incident_edge->v1 == incident_edge->v2) {
+            mc_e_list_remove(v->incident_edges, incident_edge);
+            if (e_list != NULL) {
+                // mc_e_list_remove(e_list, )
+            }
+        }
+    }
+}
+
 MC_VList *mc_v_list_create() {
     CS_SList *list = c_structures_s_list_create();
     return list;

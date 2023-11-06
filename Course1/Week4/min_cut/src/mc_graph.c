@@ -62,16 +62,6 @@ void mc_g_contract(MC_G *g, int v1_id, int v2_id) {
         }
         item = item->next;
     }
-    // Remove self connections on v1
-    // CS_SListItem *item = v1->incident_edges->head;
-    // for (size_t i = 0; i < v1->incident_edges->length; i++) {
-    //     MC_E *incident_edge = item->data;
-    //     // Replace v2 for v1 on incident edge
-    //     if (incident_edge->v1 == incident_edge->v2) {
-    //         incident_edge->v1 = v1;
-    //     } else {
-    //         incident_edge->v2 = v1;
-    //     }
-    //     item = item->next;
-    // }
+    // Remove self connections
+    mc_v_self_connections_remove(v1);
 }
