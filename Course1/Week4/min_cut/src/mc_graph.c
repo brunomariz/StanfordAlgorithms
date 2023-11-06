@@ -43,7 +43,35 @@ MC_V *mc_g_find_v_by_id(MC_G *g, int id) {
 }
 
 void mc_g_contract(MC_G *g, int v1_id, int v2_id) {
-    // MC_V *v1 = mc_g_find_v_by_id(v1_id);
-    // MC_V *v2 = mc_g_find_v_by_id(v2_id);
-    // mc_v_list_append(v1->contracted_vs, v2);
+    MC_V *v1 = mc_g_find_v_by_id(g, v1_id);
+    MC_V *v2 = mc_g_find_v_by_id(g, v2_id);
+
+    // Add v2 to v1's contracted vertices list
+    mc_v_list_append(v1->contracted_vs, v2);
+    // Remove v2 from graph
+    mc_v_list_remove(g->v_list, v2);
+    // Replace v2 for v1 for all incident edges on v2
+    CS_SListItem *item = v2->incident_edges->head;
+    for (size_t i = 0; i < v2->incident_edges->length; i++) {
+        MC_E *incident_edge = item->data;
+        // Replace v2 for v1 on incident edge
+        if (incident_edge->v1 == v2) {
+            incident_edge->v1 = v1;
+        } else {
+            incident_edge->v2 = v1;
+        }
+        item = item->next;
+    }
+    // Remove self connections on v1
+    // CS_SListItem *item = v1->incident_edges->head;
+    // for (size_t i = 0; i < v1->incident_edges->length; i++) {
+    //     MC_E *incident_edge = item->data;
+    //     // Replace v2 for v1 on incident edge
+    //     if (incident_edge->v1 == incident_edge->v2) {
+    //         incident_edge->v1 = v1;
+    //     } else {
+    //         incident_edge->v2 = v1;
+    //     }
+    //     item = item->next;
+    // }
 }
