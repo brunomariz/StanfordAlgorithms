@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "min_cut.h": "c"
+        "min_cut.h": "c",
+        "time.h": "c"
     }
 }

@@ -4,7 +4,7 @@
 CC := gcc
 
 # set the compiler flags
-CFLAGS := -ggdb3 -O0 -Wall
+CFLAGS := -ggdb3 -O0 -Wall -lm
 
 # add header files here
 HDRS := inc/min_cut.h ../../../c_structures/inc/c_structures.h

@@ -1,8 +1,11 @@
 #ifndef _MIN_CUT
 #define _MIN_CUT
 
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
 #include "../../../../c_structures/inc/c_structures.h"
 
@@ -27,7 +30,10 @@ void mc_g_create_e(MC_G *g, int v1_id, int v2_id);
 // Print callback for edge list
 void mc_g_print(MC_G *g);
 MC_V *mc_g_find_v_by_id(MC_G *g, int id);
-void mc_g_contract(MC_G *g, int v1_id, int v2_id);
+void mc_g_contract(MC_G *g, MC_V *v1, MC_V *v2);
+void mc_g_contract_by_v_ids(MC_G *g, int v1_id, int v2_id);
+void mc_g_contract_by_e(MC_G *g, MC_E *e);
+void mc_g_contract_by_random_e(MC_G *g);
 
 // === Edges ===
 

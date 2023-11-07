@@ -36,9 +36,18 @@ void mc_v_list_remove(MC_VList *v_list, MC_V *v) {
 void mc_v_list_print_callback(void *data, int iter) {
     // Custom print function made specifically for My_data
     MC_V *v = (MC_V *)data;
-    printf("[vertex %d] id: %d | ", iter, v->id);
+    printf("[vertex %d] id: %d ( ", iter, v->id);
+    // Print contracted vertices
+    CS_SListItem *current_item = v->contracted_vs->head;
+    for (size_t i = 0; i < v->contracted_vs->length; i++) {
+        MC_V *current_contracted_v = current_item->data;
+        printf("%d ", current_contracted_v->id);
+        current_item = current_item->next;
+    }
+    printf(") | ");
+
     printf("Adjacent vertices: ");
-    CS_SListItem *current_item = v->incident_edges->head;
+    current_item = v->incident_edges->head;
     for (size_t i = 0; i < v->incident_edges->length; i++) {
         MC_E *current_edge = current_item->data;
         if (current_edge->v1 != v) {
