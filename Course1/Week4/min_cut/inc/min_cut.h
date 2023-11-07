@@ -61,6 +61,7 @@ struct mc_v {
 };
 
 MC_V *mc_v_create(int id);
+void mc_v_self_connections_remove(MC_V *v);
 MC_VList *mc_v_list_create();
 void mc_v_list_append(MC_VList *v_list, MC_V *v);
 void mc_v_list_remove(MC_VList *v_list, MC_V *v);

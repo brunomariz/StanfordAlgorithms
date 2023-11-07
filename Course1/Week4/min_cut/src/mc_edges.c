@@ -32,6 +32,7 @@ void mc_e_list_remove(MC_EList *e_list, MC_E *e) {
         c_structures_s_list_index_of(e_list, e, mc_e_list_internal_compare);
     c_structures_s_list_remove(e_list, index);
 }
+
 // Print callback for example 1
 void mc_e_list_print_callback(void *data, int iter) {
     // Custom print function made specifically for My_data
