@@ -19,3 +19,7 @@ https://www.coursera.org/programs/universidade-de-sao-paulo-br-on-coursera-mvxtw
 
 - Quick sort
 
+### Week 4
+
+- Minimum cut problem
+
