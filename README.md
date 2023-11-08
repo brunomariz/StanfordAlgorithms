@@ -1,3 +1,5 @@
+[![README code output](https://github.com/brunomariz/StanfordAlgorithms/actions/workflows/main.yml/badge.svg)](https://github.com/brunomariz/StanfordAlgorithms/actions/workflows/main.yml)
+
 # StanfordAlgorithms
 
 https://www.coursera.org/programs/universidade-de-sao-paulo-br-on-coursera-mvxtw/specializations/algorithms
