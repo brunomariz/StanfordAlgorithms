@@ -2,7 +2,10 @@
 
 # StanfordAlgorithms
 
-https://www.coursera.org/programs/universidade-de-sao-paulo-br-on-coursera-mvxtw/specializations/algorithms
+[:mortar_board: Certificate Link](https://coursera.org/verify/FFLEXR2Z3D2Z)
+
+
+[Course Link](https://www.coursera.org/programs/universidade-de-sao-paulo-br-on-coursera-mvxtw/specializations/algorithms)
 
 ## Course 1
 
